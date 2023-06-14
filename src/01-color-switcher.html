@@ -6,6 +6,27 @@
     <title>Color switcher</title>
     <link rel="stylesheet" href="css/common.css" />
 
+    <!-- трошки стилів додамо щоб цікавіше було -->
+    <style>
+      p {
+        background-color: orange;
+        border-radius: 3px 40px 3px 40px;
+        width: 100px;
+        text-align: center;
+        transition: cubic-bezier(0.075, 0.82, 0.165, 1), 1, background;
+      }
+      p:hover {
+        background-color: rgb(20, 19, 19);
+      }
+      a {
+        color: inherit;
+        color: black;
+        transition: cubic-bezier(0.075, 0.82, 0.165, 1), 1, color;
+      }
+      p:hover > a {
+        color: orange;
+      }
+    </style>
   </head>
   <body>
     <p><a href="index.html">Go back</a></p>

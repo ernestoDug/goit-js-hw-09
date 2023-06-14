@@ -36,10 +36,15 @@ function goColor(event) {
     document.body.style.backgroundColor = getRandomHexColor();
   }, 1000);
 
-  // додавання атрибуту
+  // додавання атрибуту disabled
   btnKi.startBtn.setAttribute('disabled', 'disabled');
+  // disabled колір старту
   btnKi.startBtn.style.backgroundColor = 'grey';
-};
+  // повернення кольору стоп
+  btnKi.stopBtn.style.backgroundColor = 'red';
+  // видалення атрибуту стоп
+  btnKi.stopBtn.removeAttribute('disabled', 'disabled');
+}
 // обробка кліків стоп
 function stopColor(event) {
   if (event.target.nodeName !== 'BUTTON') {
@@ -47,17 +52,15 @@ function stopColor(event) {
   }
   // видалення атрибуту
   btnKi.startBtn.removeAttribute('disabled', 'disabled');
-//   очистка интервалу
-clearInterval(intervalColorId);
-// повернення кольору старту
-btnKi.startBtn.style.backgroundColor = 'green';
-
+  //   очистка интервалу
+  clearInterval(intervalColorId);
+  // повернення кольору старту
+  btnKi.startBtn.style.backgroundColor = 'green';
+  // додавання атрибуту стоп
+  btnKi.stopBtn.setAttribute('disabled', 'disabled');
+  // disabled колір стоп
+  btnKi.stopBtn.style.backgroundColor = 'grey';
 }
-
-
-
-
-
 
 // функція рандомності
 function getRandomHexColor() {
