@@ -19,14 +19,14 @@
         width: 100px;
         text-align: center;
         transition: cubic-bezier(0.075, 0.82, 0.165, 1), 1, background;
-             }
-p > a {
-  text-decoration: none;
-}
+      }
+      p > a {
+        text-decoration: none;
+      }
 
       p:hover {
         background-color: antiquewhite;
-  transform: scaleY(1.2);
+        transform: scaleY(1.2);
       }
       a {
         color: inherit;
@@ -37,99 +37,101 @@ p > a {
         color: rgb(74, 143, 184);
       }
 
-      .timer{
-  display: flex;
-  font-size: 20px;
-  margin-left: 20%;
-  margin-top: 300px;
-}
-.field {
-  position: relative;
-  min-width: 60px;
-  margin-left: 10px;
-  margin-right: 10px;
-  padding-bottom: 15px;
-  text-align: center;
-  background-color: cadetblue;
-  border-radius:10%;
-  padding: 10px;
-  border-radius: 7px;
-  border: 7px double black;
-}
-  .value
-  {
-    padding: 15px;
-  border-radius: 3px;
-  background: rgb(150, 192, 194);
-  display: inline-block;
-  border: 2px dashed rgb(48, 47, 47);
-
-  }
-
-.field::before {
-  content: attr(data-title);
-  display: block;
-  position: absolute;
-  left: 50%;
-  bottom: 0;
-  transform: translateX(-50%);
-  font-size: 10px;
-}
-.timer:not(:last-child)::after {
-  content: ':';
-  position: absolute;
-  right: -15px;
-}
-.start_btn-active-js
-{
-  width: 100px;
+      .timer {
+        display: flex;
+        font-size: 20px;
+        margin-left: 20%;
+        margin-top: 300px;
+      }
+      .field {
+        position: relative;
+        min-width: 60px;
+        margin-left: 10px;
+        margin-right: 10px;
+        padding-bottom: 15px;
         text-align: center;
-  background-color: cadetblue;
-  border: none;
-  border-radius: 3px 40px 3px 40px;
-transition: cubic-bezier(0.075, 0.82, 0.165, 1), 1, background, transform;
-}
+        background-color: cadetblue;
+        border-radius: 10%;
+        padding: 10px;
+        border-radius: 7px;
+        border: 7px double black;
+      }
+      .value {
+        padding: 15px;
+        border-radius: 3px;
+        background: rgb(150, 192, 194);
+        display: inline-block;
+        border: 2px dashed rgb(48, 47, 47);
+      }
 
-.start_btn-active-js:hover {
-  background-color: antiquewhite;
-  transform: scaleY(1.2);
-  color: rgb(74, 143, 184);
-  }
-.start_btn-dsb-js
-{
- background-color: black;
-transform: none;
-border: none;
-  border-radius: 3px 40px 3px 40px;
-  width: 100px;
+      .field::before {
+        content: attr(data-title);
+        display: block;
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        transform: translateX(-50%);
+        font-size: 10px;
+      }
+      .timer:not(:last-child)::after {
+        content: ':';
+        position: absolute;
+        right: -15px;
+      }
+      .start_btn-active-js {
+        width: 100px;
+        text-align: center;
+        background-color: cadetblue;
+        border: none;
+        border-radius: 3px 40px 3px 40px;
+        transition: cubic-bezier(0.075, 0.82, 0.165, 1), 1, background,
+          transform;
+      }
+
+      .start_btn-active-js:hover {
+        background-color: antiquewhite;
+        transform: scaleY(1.2);
+        color: rgb(74, 143, 184);
+      }
+      .start_btn-dsb-js {
+        background-color: black;
+        transform: none;
+        border: none;
+        border-radius: 3px 40px 3px 40px;
+        width: 100px;
         text-align: center;
         color: darkslategray;
-        }
+      }
 
-  .clear_btn {
-    width: 100px;
+      .clear_btn {
+        width: 100px;
         text-align: center;
-  background-color: cadetblue;
-  border: none;
-  border-radius: 3px 40px 3px 40px;
-transition: cubic-bezier(0.075, 0.82, 0.165, 1), 1, background, transform;
-  }
-.clear_btn:hover {  background-color: antiquewhite;
-  transform: scaleY(1.2);
-  color: rgb(74, 143, 184);}
-
+        background-color: cadetblue;
+        border: none;
+        border-radius: 3px 40px 3px 40px;
+        transition: cubic-bezier(0.075, 0.82, 0.165, 1), 1, background,
+          transform;
+      }
+      .clear_btn:hover {
+        background-color: antiquewhite;
+        transform: scaleY(1.2);
+        color: rgb(74, 143, 184);
+         }
+      
 
     </style>
-    <link rel="stylesheet" type="text/css" href="https://npmcdn.com/flatpickr/dist/themes/material_green.css">
-
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://npmcdn.com/flatpickr/dist/themes/material_green.css"
+    />
   </head>
   <body>
     <p><a href="index.html">Go back</a></p>
 
     <input type="text" id="datetime-Picker" />
-    <button   type="button" data-start>Start</button>
-    <button class="clear_btn"  type="button" data-clear>Clear</button>
-
+    <button type="button" data-start>Start</button>
+    <button class="clear_btn" type="button" data-clear>Clear</button>
 
     <div class="timer">
       <div class="field">
