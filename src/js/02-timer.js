@@ -7,12 +7,13 @@ import flatpickr from 'flatpickr';
 // Додатковий імпорт стилів
 import 'flatpickr/dist/flatpickr.min.css';
 
+
 // посилання на кнопку start
 const startBtn = document.querySelector('[data-start]');
-// додаємоо клас старту
-// startBtn.classList.add("start_btn-dsb-js");
-// додавання атрибуту безактивносіт на початку 
-// startBtn.setAttribute('disabled', 'disabled');
+// додаємоо клас безактивності старту
+startBtn.classList.add('start_btn-dsb-js');
+// додавання атрибуту безактивності на початку
+startBtn.setAttribute('disabled', 'disabled');
 // посилання на кнопку clear
 const cleartBtn = document.querySelector('[data-clear]');
 // посилання на поля таймера
@@ -32,73 +33,68 @@ const options = {
   minuteIncrement: 1,
   onClose(selectedDates) {
     console.log(selectedDates[0]);
+    // умова невірно обраних дат
+    if (fpReplicka.selectedDates[0] < new Date()) {
+      alert('Please choose a date in the future');
+    }
+    // додавання класу та атрибуту актиності
+    // зняття без актиVності
+    else {
+      startBtn.classList.remove('start_btn-dsb-js');
+      startBtn.classList.add('start_btn-active-js');
+      startBtn.removeAttribute('disabled', 'disabled');
+    }
   },
 };
 // створення  екземляру флетпикра з обектом параметров
 const fpReplicka = flatpickr(taimerValue, options);
-// слухач на кнопці start 
+// слухач на  start
 startBtn.addEventListener('click', clicker);
-// слухач на кнопці clear 
+// слухач на  clear
 cleartBtn.addEventListener('click', cliner);
 //  обробка кліків clear
-function cliner (event) {
-  location. reload();
+function cliner(event) {
+  location.reload();
 }
-// ******************
-if(fpReplicka.selectedDates[0] > options.defaultDate)
-    {
-      alert("Please choose a date in the future");
-       return;
-       }
-       startBtn.removeAttribute('disabled', 'disabled');
-       startBtn.classList.remove("start_btn-dsb-js");
-       startBtn.classList.add("start_btn-active-js");
-
-
-
-
 // обробка кліків старт
 function clicker(event) {
-   // актуальна дата
+  // актуальна дата
   if (event.target.nodeName !== 'BUTTON') {
     return;
   }
   // інтервал відліку
   forActionId = setInterval(() => {
-    // обрана дата 
+    // обрана дата
     const choiseDate = fpReplicka.selectedDates[0];
-        // дата зараз 
+    // дата зараз
     const neoDate = new Date();
-       // різниця дат
+    // різниця дат
     const difaraanceDate = choiseDate - neoDate;
+
     // умова очищення інтервалу
     if (difaraanceDate <= 0) {
       clearInterval(forActionId);
+      alert('ЧАС КАВИ НАСТАВ');
+      return;
     }
-
-        // конвертація часу 
+    // конвертація часу
     const display = convertMs(difaraanceDate);
-// виведення на екран
+    // виведення на екран
     secondsValue.textContent = padSt(display.seconds);
-  minutesValue.textContent =  padSt(display.minutes);
-hoursValue.textContent =  padSt(display.hours);
-daysValue.textContent =  padSt(display.days);
-}, 1000);
-// додавання атрибуту disabled
-startBtn.setAttribute('disabled', 'disabled');
-startBtn.classList.remove("start_btn-active-js");
-startBtn.classList.add("start_btn-dsb-js");
+    minutesValue.textContent = padSt(display.minutes);
+    hoursValue.textContent = padSt(display.hours);
+    daysValue.textContent = padSt(display.days);
+  }, 1000);
+  // додавання атрибуту ТА КЛАСУ БЕЗ АКТИВНОСТІ
+  startBtn.setAttribute('disabled', 'disabled');
+  startBtn.classList.remove('start_btn-active-js');
+  startBtn.classList.add('start_btn-dsb-js');
 }
 
 // функція падстартингу
 function padSt(value) {
-  return String(value).padStart(2, "0");
+  return String(value).padStart(2, '0');
 }
-
-
-
-
-
 
 // функція конвертації часу
 function convertMs(ms) {
