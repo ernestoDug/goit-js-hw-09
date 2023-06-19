@@ -8,6 +8,9 @@ import flatpickr from 'flatpickr';
 import 'flatpickr/dist/flatpickr.min.css';
 // notiflix модуль попередження 
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
+// модуль підтвердження 
+import { Confirm } from 'notiflix/build/notiflix-confirm-aio';
+
 
 
 // посилання на кнопку start
@@ -79,7 +82,20 @@ function clicker(event) {
        // умова очищення інтервалу
     if (difaraanceDate <= 0) {
       clearInterval(forActionId);
-      alert('ЧАС КАВИ НАСТАВ');
+      Confirm.show(
+        'Таймер відпрацював',
+        'Може бажаєте кави?',
+        'Так',
+        'Ні',
+        () => {
+          Notify.warning('Тоді кавоварка чекає');
+        },
+        () => {
+          Notify.warning('Ну як хочете...');
+        },
+        {
+        },
+        );  
       return;
     }
     // конвертація часу
