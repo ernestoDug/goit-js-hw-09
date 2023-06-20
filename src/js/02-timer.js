@@ -2,14 +2,14 @@
 //  Такий таймер може використовуватися у блогах та інтернет-магазинах, сторінках реєстрації
 // подій, під час технічного обслуговування тощо. Подивися демо-відео роботи таймера.
 
-// Описаний в документації 
+// Описаний в документації
 import flatpickr from 'flatpickr';
 // Додатковий імпорт стилів ФЛЕТПИКЕР
 import 'flatpickr/dist/flatpickr.min.css';
 
 // notiflix модуль попередження  сповіщення
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
-// модуль підтвердження 
+// модуль підтвердження
 import { Confirm } from 'notiflix/build/notiflix-confirm-aio';
 
 // посилання на кнопку start
@@ -37,12 +37,12 @@ const options = {
   minuteIncrement: 1,
   onClose(selectedDates) {
     console.log(selectedDates[0]);
-    // умова невірно обраних дат та зняттяДодавання классів та атрибуту
+    // умова невірно обраних дат та зняттяДодавання класів та атрибуту
     if (fpReplicka.selectedDates[0] < new Date()) {
-             startBtn.classList.remove('start_btn-active-js');
-        startBtn.classList.add('start_btn-dsb-js');
-        startBtn.setAttribute('disabled', 'disabled');
-            Notify.failure('Please choose a date in the future');
+      startBtn.classList.remove('start_btn-active-js');
+      startBtn.classList.add('start_btn-dsb-js');
+      startBtn.setAttribute('disabled', 'disabled');
+      Notify.failure('Please choose a date in the future');
     }
     // додавання класу та атрибуту актиності
     // зняття без актиVності
@@ -78,7 +78,7 @@ function clicker(event) {
     // різниця дат
     const difaraanceDate = choiseDate - neoDate;
 
-       // умова очищення інтервалу
+    // умова очищення інтервалу
     if (difaraanceDate <= 0) {
       clearInterval(forActionId);
       Confirm.show(
@@ -92,9 +92,8 @@ function clicker(event) {
         () => {
           Notify.info('Ну як хочете...');
         },
-        {
-        },
-        );  
+        {}
+      );
       return;
     }
     // конвертація часу
