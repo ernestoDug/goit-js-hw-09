@@ -6,12 +6,11 @@
 import flatpickr from 'flatpickr';
 // Додатковий імпорт стилів ФЛЕТПИКЕР
 import 'flatpickr/dist/flatpickr.min.css';
-// notiflix модуль попередження 
+
+// notiflix модуль попередження  сповіщення
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 // модуль підтвердження 
 import { Confirm } from 'notiflix/build/notiflix-confirm-aio';
-
-
 
 // посилання на кнопку start
 const startBtn = document.querySelector('[data-start]');
@@ -43,7 +42,7 @@ const options = {
              startBtn.classList.remove('start_btn-active-js');
         startBtn.classList.add('start_btn-dsb-js');
         startBtn.setAttribute('disabled', 'disabled');
-            Notify.warning('Please choose a date in the future');
+            Notify.failure('Please choose a date in the future');
     }
     // додавання класу та атрибуту актиності
     // зняття без актиVності
@@ -88,10 +87,10 @@ function clicker(event) {
         'Так',
         'Ні',
         () => {
-          Notify.warning('Тоді кавоварка чекає');
+          Notify.success('Тоді кавоварка чекає');
         },
         () => {
-          Notify.warning('Ну як хочете...');
+          Notify.info('Ну як хочете...');
         },
         {
         },
